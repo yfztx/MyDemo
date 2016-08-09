@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
          mButton.setOnClickListener(this);
          mButton2.setOnClickListener(this);
         mTextView2.setOnClickListener(this);
-
     }
 
     /**
