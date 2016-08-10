@@ -1,7 +1,6 @@
 package com.longying.myapplication;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -34,8 +33,8 @@ public class JsonDataTest extends AppCompatActivity implements View.OnClickListe
     private List<BaseBean> list;
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
         initData();

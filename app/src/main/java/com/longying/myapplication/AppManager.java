@@ -1,6 +1,7 @@
 package com.longying.myapplication;
 
 import android.content.Context;
+import android.os.Environment;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -72,14 +73,17 @@ public class AppManager {
             message = "";
         }
         try {
-            FileOutputStream fout = new FileOutputStream(message);
-            File file = new File(FILE_NAME);
-            if ( !file.exists()){
-                file.createNewFile();
+            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+                File directory = Environment.getExternalStorageDirectory();
+                File file = new File(directory, FILE_NAME);
+                if ( !file.exists()){
+                    file.createNewFile();
+                }
+                FileOutputStream fout = new FileOutputStream(file);
+                byte[] bytes = message.getBytes();
+                fout.write(bytes);
+                fout.close();
             }
-            byte[] bytes = message.getBytes();
-            fout.write(bytes);
-            fout.close();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -94,12 +98,19 @@ public class AppManager {
     public String readFileSdcard(String fileName){
         String res = "";
         try {
-            FileInputStream fis = new FileInputStream(fileName);
-            int length = fis.available();
-            byte[] bytes = new byte[length];
-            fis.read(bytes);
-            res = new String(bytes);
-            fis.close();
+            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+                File dir = Environment.getExternalStorageDirectory();
+                File file = new File(dir, fileName);
+                FileInputStream fis = new FileInputStream(file);
+                if (!file.exists()){
+                    return new String(" ");
+                }
+                int length = fis.available();
+                byte[] bytes = new byte[length];
+                fis.read(bytes);
+                res = new String(bytes);
+                fis.close();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
