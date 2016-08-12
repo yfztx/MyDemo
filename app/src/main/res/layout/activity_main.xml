@@ -36,8 +36,12 @@
         android:gravity="center"
         android:text="JsonDataTest"/>
     <TextView
+        android:padding="10dp"
+        android:layout_below="@id/textView2"
+        android:id="@+id/tv_model"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""
+        android:text="动态代理"
         />
 </RelativeLayout>

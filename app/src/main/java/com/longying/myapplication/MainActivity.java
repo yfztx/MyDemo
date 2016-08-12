@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mButton2;
     private TextView mTextView;
     private TextView mTextView2;
+    private TextView mModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mButton2 = (Button) findViewById(R.id.but_2);
         mTextView = (TextView) findViewById(R.id.textView);
         mTextView2 = (TextView) findViewById(R.id.textView2);
+        mModel = (TextView) findViewById(R.id.tv_model) ;
     }
 
     @Override
@@ -68,6 +70,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.textView2:
                 startActivity(new Intent(getApplication(),JsonDataTest.class));
+
+                break;
+            case R.id.tv_model:
 
                 break;
         }
