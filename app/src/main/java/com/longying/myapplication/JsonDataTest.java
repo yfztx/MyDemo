@@ -103,6 +103,9 @@ public class JsonDataTest extends AppCompatActivity implements View.OnClickListe
                 bean.time = System.currentTimeMillis();
                 break;
             case R.id.ad_start:
+				Toast.makeText(this,"写入一条数据"，Toast.LENGTH_SHORT).show();
+				UserDataBean bean = new userDataBean();
+				bean.action = "AD_START"
                 break;
             case R.id.ad_stop:
                 break;
