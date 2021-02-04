@@ -5,6 +5,6 @@ class Demo {
 
 	int a=0;
 	a++
-	the is my new txt
+	the is my neww txt
 }
 
